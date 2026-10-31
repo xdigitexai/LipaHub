@@ -31,7 +31,7 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
  db()->prepare("UPDATE sections SET title=?,eyebrow=?,body=?,theme='soft',item_limit=24,sort_order=35,enabled=? WHERE id=?")->execute([$title,$eyebrow,$body,isset($_POST['enabled'])?1:0,$section['id']]);flash('Ways to Earn saved.');redirect(url('admin/earning.php'));
 }
 $msg=$_SESSION['_flash']??'';unset($_SESSION['_flash']);
-?><!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Ways to Earn</title><link rel="stylesheet" href="<?=e(url('assets/css/admin.css'))?>"></head><body><div class="shell"><?php require __DIR__.'/_nav.php';?><main><div class="top"><div><small>PLATFORM CONTENT</small><h1>Ways to Earn</h1></div><a href="<?=e(url('index.php#ways-to-earn'))?>" target="_blank" rel="noopener">Preview section ↗</a></div>
+?><!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Ways to Earn</title><link rel="stylesheet" href="<?=e(url('assets/css/admin.css'))?>"><link rel="icon" type="image/svg+xml" href="<?=e(url('favicon.svg'))?>"></head><body><div class="shell"><?php require __DIR__.'/_nav.php';?><main><div class="top"><div><small>PLATFORM CONTENT</small><h1>Ways to Earn</h1></div><a href="<?=e(url('index.php#ways-to-earn'))?>" target="_blank" rel="noopener">Preview section ↗</a></div>
 <?php if($msg):?><div class="notice"><?=e($msg)?></div><?php endif;?>
 <p class="intro">Edit every opportunity's card image, short description, full detail page and optional destination. The public Explore opportunity button always goes to the existing sign-up page.</p>
 <form method="post" class="panel editor"><?=csrf_field()?>

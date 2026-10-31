@@ -14,7 +14,7 @@ $recent=db()->query('SELECT title,type,status,updated_at FROM content ORDER BY u
 <div class="top"><div><small>WORKSPACE OVERVIEW</small><h1>Welcome back, <?=e(admin_user()['name'])?>.</h1></div><a href="<?=e(url('index.php'))?>" target="_blank" rel="noopener">View website ↗</a></div>
 <div class="stats"><?php foreach($stats as $label=>$value):?><div><small><?=e($label)?></small><b><?=number_format($value)?></b><small>Live database count</small></div><?php endforeach;?></div>
 <section class="panel"><h2>Website control centre</h2><p>Manage your public website, editorial content and homepage without editing code.</p><div class="quick">
-<a href="<?=e(url('admin/earning.php'))?>"><b>Ways to Earn</b><small>Manage the eight illustrated earning categories, images and links.</small></a>
+<a href="<?=e(url('admin/earning.php'))?>"><b>Ways to Earn</b><small>Manage earning categories, full descriptions, images and signup links.</small></a>
 <a href="<?=e(url('admin/sections.php'))?>"><b>Homepage builder</b><small>Arrange, edit, show or hide homepage sections.</small></a>
 <a href="<?=e(url('admin/content.php?type=article'))?>"><b>Articles & guides</b><small>Create, edit, publish and organize editorial content.</small></a>
 <a href="<?=e(url('admin/content.php?type=country'))?>"><b>Country guides</b><small>Maintain useful country-specific information.</small></a>

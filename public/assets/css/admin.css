@@ -14,3 +14,7 @@
 .earning-card .earning-copy{padding:17px}.earning-card h3{font-size:16px;letter-spacing:-.35px;margin:0 0 7px}.earning-card p{font-size:11px;line-height:1.7;color:var(--admin-muted);margin:0}.earning-card .earning-more{display:block;margin-top:13px;font-size:10px;font-weight:800;color:var(--admin-green)}
 @media(max-width:1050px){.earning-card-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:520px){.earning-card-grid{grid-template-columns:1fr}.earning-card .earning-image{height:190px}}
+
+.earning-admin-row{display:grid;grid-template-columns:minmax(130px,.8fr) minmax(180px,1.2fr);gap:12px;padding:17px;margin:12px 0 18px;border:1px solid var(--admin-line);border-radius:11px;background:#fbfdfb}
+.earning-admin-row label{margin:0}.earning-admin-row .image-upload{display:flex;gap:7px;align-items:center;flex-wrap:wrap}.earning-admin-row .image-upload input{min-width:0}.earning-admin-row .image-upload span{font-size:10px;color:var(--admin-muted)}
+@media(max-width:520px){.earning-admin-row{grid-template-columns:1fr}.earning-admin-row .image-upload input{max-width:100%}}

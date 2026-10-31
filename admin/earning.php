@@ -3,7 +3,7 @@ require __DIR__.'/_init.php';
 $defaults=[
  ['Watch Videos','Explore available TikTok and YouTube video activities.','https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=900&q=85&fit=crop',''],
  ['Click Ads','Discover advertising and promotional engagement tasks.','https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=85&fit=crop',''],
- ['Write Blogs','Create written content through available blogging activities.','https://images.unsplash.com/photo-1455390582262-044c...',''],
+ ['Write Blogs','Create written content through available blogging activities.','https://images.unsplash.com/photo-1455390582262-044cdead277a',''],
  ['Answer Surveys','Share your opinions through available online surveys.','https://images.unsplash.com/photo-1553877522-43269d4ea984?w=900&q=85&fit=crop',''],
  ['Play Games','Take part in eligible game-based activities.','https://images.unsplash.com/photo-1511512578047-dfb367046420?w=900&q=85&fit=crop',''],
  ['Spin to Win','Explore spin activities and check their rules before joining.','https://images.unsplash.com/photo-1606167668584-78701c57f13d?w=900&q=85&fit=crop',''],
@@ -19,7 +19,7 @@ if(isset($lines[0])&&trim($lines[0])!=='')$intro=trim($lines[0]);
 foreach(array_slice($lines,1) as $i=>$line){if($i>=8)break;$p=explode('|',$line,4);if(isset($cards[$i]))$cards[$i]=[trim($p[0]??''),trim($p[1]??''),trim($p[2]??''),trim($p[3]??'')];}
 if($_SERVER['REQUEST_METHOD']==='POST'){
  verify_csrf();$intro=trim($_POST['intro']??$intro);$title=trim($_POST['title']??'Explore ways to earn');$eyebrow=trim($_POST['eyebrow']??'WAYS TO EARN');$body=$intro."\n";
- for($i=0;$i<8;$i++){$t=trim($_POST['card_title'][$i]??'');$d=trim($_POST['card_description'][$i]??'');$img=trim($_POST['card_image'][$i]??'');$link=trim($_POST['card_url'][$i]??'');if($t==='')continue;if($img!==''&&!preg_match('#^https?://#i',$img)&&!str_starts_with($img,'/')){$img='';}if($link!==''&&!preg_match('#^(https?://|/|#)#i',$link))$link='';$body.=str_replace(["\r","\n","|"],[' ',' ','/'],$t).'|'.str_replace(["\r","\n","|"],[' ',' ','/'],$d).'|'.$img.'|'.$link."\n";}
+ for($i=0;$i<8;$i++){$t=trim($_POST['card_title'][$i]??'');$d=trim($_POST['card_description'][$i]??'');$img=trim($_POST['card_image'][$i]??'');$link=trim($_POST['card_url'][$i]??'');if($t==='')continue;if($img!==''&&!preg_match('#^https?://#i',$img)&&!str_starts_with($img,'/')){$img='';}if($link!==''&&!preg_match('~^(https?://|/|#)~i',$link))$link='';$body.=str_replace(["\r","\n","|"],[' ',' ','/'],$t).'|'.str_replace(["\r","\n","|"],[' ',' ','/'],$d).'|'.$img.'|'.$link."\n";}
  db()->prepare("UPDATE sections SET title=?,eyebrow=?,body=?,theme='soft',item_limit=8,sort_order=35,enabled=? WHERE id=?")->execute([$title,$eyebrow,$body,isset($_POST['enabled'])?1:0,$section['id']]);
  flash('Ways to Earn section saved.');redirect(url('admin/earning.php'));
 }

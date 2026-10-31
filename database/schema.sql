@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS sections(id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KE
 INSERT IGNORE INTO sections(id,type,title,eyebrow,body,button_label,theme,sort_order,enabled) VALUES
 (1,'hero','Make your time online count.','YOUR NEXT DIGITAL CHAPTER STARTS HERE','Explore digital tasks, practical learning and a community built to help you take your next step online.','Get started','soft',10,1),
 (2,'text','A smarter way to explore online opportunities','A PLATFORM TO EXPLORE','LipaHub brings digital activities, practical learning and community resources together in one place.','More about LipaHub','soft',20,1),
-(3,'feature_grid','Explore. Learn. Participate.','A PLATFORM TO EXPLORE','Discover activities, learn as you go and move at your pace.','','default',30,1),
+(3,'feature_grid','Explore. Learn. Participate.','A PLATFORM TO EXPLORE','Discover activities|Find digital activities and opportunities in one convenient place.\nLearn as you go|Use practical guides to understand the platform and make informed choices.\nMove at your pace|Explore available options and take the steps that work for you.','','default',30,1),
 (4,'article_grid','Guides for your next step.','START WITH THE RIGHT INFORMATION','Practical resources to help you make informed choices.','','dark',40,1),
 (5,'country_grid','Explore LipaHub by country.','LOCAL INFORMATION','Country-specific information and guides.','','default',50,1),
 (6,'review_grid','Stories from our community.','COMMUNITY VOICES','Experiences and feedback shared by our community.','','soft',60,1),

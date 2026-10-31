@@ -1,0 +1,1 @@
+<?php require __DIR__.'/_init.php';if($_SERVER['REQUEST_METHOD']!=='POST')redirect(url('admin/index.php'));verify_csrf();db()->prepare('DELETE FROM content WHERE id=?')->execute([(int)($_POST['id']??0)]);redirect(url('admin/content.php'));

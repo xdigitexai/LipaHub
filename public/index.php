@@ -59,7 +59,7 @@ $description=$page?($page['excerpt']??''):setting('meta_description');
    <?php foreach($articles as $a):?>
     <article class="article-card"><a href="<?=e(url('index.php?page='.$a['slug']))?>">
      <div class="cover"><?php if($a['image']):?><img src="<?=e($a['image'])?>" alt="<?=e($a['title'])?>" loading="lazy"><?php else:?><b>LH</b><?php endif;?></div>
-     <div class="article-card-copy"><div class="meta">LIPAHUB GUIDE</div><h2><?=e($a['title'])?></h2><p><?=e($a['excerpt']??'Explore this practical LipaHub resource.')?></p><span class="read-more">Read article <span aria-hidden="true">→</span></span></div>
+     <div class="article-card-copy"><div class="article-meta"><span>LIPAHUB GUIDE</span><span><?=e(date('M j, Y',strtotime($a['created_at'])))?></span></div><h2><?=e($a['title'])?></h2><p><?=e($a['excerpt']??'Explore this practical LipaHub resource.')?></p><span class="read-more">Read article <span aria-hidden="true">→</span></span></div>
     </a></article>
    <?php endforeach;?>
   </div><?php else:?><div class="empty-state"><h2>New guides are on the way.</h2><p>We are preparing useful resources for this section. Please check back soon.</p></div><?php endif;?>
@@ -68,7 +68,7 @@ $description=$page?($page['excerpt']??''):setting('meta_description');
 <?php elseif($page):?>
 <main>
  <section class="page-hero"><div class="container">
-  <a class="article-back" href="<?=e(url('index.php?page=articles'))?>">← Back to guides</a>
+  <?php if($isArticle):?><a class="article-back" href="<?=e(url('index.php?page=articles'))?>">← Back to guides</a><?php else:?><a class="article-back" href="<?=e(url('index.php'))?>">← Back to home</a><?php endif;?>
   <div class="eyebrow">LIPAHUB / <?=e($isArticle?'ARTICLE':strtoupper($page['type']))?></div>
   <h1><?=e($page['title'])?></h1>
   <?php if($page['excerpt']):?><p><?=e($page['excerpt'])?></p><?php endif;?>

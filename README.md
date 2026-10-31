@@ -1,13 +1,18 @@
 # LipaHub
 
-Premium responsive website and custom PHP/MySQL CMS.
+Premium responsive PHP/MySQL website and custom CMS.
 
-## Current implementation
-- Public homepage, article listing, content detail pages, country guides and editable page content.
-- MySQL content/settings/admin schema.
-- Secure admin sessions, password hashing, CSRF checks and first-admin setup lock.
-- Admin settings and content management interface with image upload support.
-- Registration CTA defaults to https://lipahub.com/register.php?ref=ItsVee.
+## Features
+- Custom responsive public website.
+- Database-driven homepage section builder: add, edit, hide, delete and reorder sections.
+- Section layouts: hero, text, image/text, feature cards, article grid, country guides, testimonials, FAQ list, stats and CTA.
+- Admin-managed footer columns, labels, URLs, legal note and copyright.
+- Content manager for pages, articles, country guides, reviews and FAQs.
+- Global site settings, SEO description, header navigation labels and media uploads.
+- Secure admin login, password hashing, session cookies, CSRF validation and one-time initial admin setup.
+- All registration CTA links default to `https://lipahub.com/register.php?ref=ItsVee`.
 
 ## Install
-Follow [VPS installation](docs/INSTALL.md). Deploy the public/ directory as the web root. Work on branch build/php-mysql-cms.
+Follow [VPS installation](docs/INSTALL.md). For an existing installation, also run [the homepage sections migration](database/migrations/001_homepage_sections.sql).
+
+After login, use **Homepage builder** to manage sections and **Footer editor** to manage footer columns.

@@ -41,6 +41,7 @@ $description=$page?($page['excerpt']??''):setting('meta_description');
   <nav id="primary-navigation" aria-label="Main navigation">
    <a href="<?=e(url('index.php'))?>"><?=e(setting('nav_home','Home'))?></a>
    <a href="<?=e(url('index.php?page=how-it-works'))?>"><?=e(setting('nav_how','How it works'))?></a>
+   <a href="<?=e(url('index.php#ways-to-earn'))?>">Ways to Earn</a>
    <a href="<?=e(url('index.php?page=about'))?>"><?=e(setting('nav_about','About'))?></a>
    <a href="<?=e(url('index.php?page=faq'))?>"><?=e(setting('nav_faq','FAQ'))?></a>
    <a href="<?=e(url('index.php?page=articles'))?>"><?=e(setting('nav_guides','Guides'))?></a>

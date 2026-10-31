@@ -5,7 +5,7 @@ function section_content(string $type,int $limit=6):array{$q=db()->prepare("SELE
 function earning_opportunities():array{
  $q=db()->query("SELECT body FROM sections WHERE type='earning_grid' ORDER BY id LIMIT 1");$body=$q->fetchColumn();if(!is_string($body))return [];
  $lines=array_slice(explode("\n",$body),1);$items=[];
- foreach($lines as $line){$line=trim($line);if($line==='')continue;$p=explode('|',$line,4);$title=trim($p[0]??'');if($title==='')continue;$short=trim($p[1]??'');$image=trim($p[2]??'');$raw=trim($p[3]??'');$detail=$raw!==''&&!preg_match('~^https?://~i',$raw)?rawurldecode($raw):$short;$slug=strtolower(trim(preg_replace('/[^a-z0-9]+/i','-',iconv('UTF-8','ASCII//TRANSLIT//IGNORE',$title)),'-'));$items[]=['slug'=>$slug,'title'=>$title,'description'=>$short,'image'=>$image,'detail'=>$detail?:$short];}
+ foreach($lines as $line){$line=trim($line);if($line==='')continue;$p=explode('|',$line,5);$title=trim($p[0]??'');if($title==='')continue;$short=trim($p[1]??'');$image=trim($p[2]??'');$raw=trim($p[3]??'');$detail=$raw!==''&&!preg_match('~^(https?://|/|#)~i',$raw)?$raw:$short;$slug=strtolower(trim(preg_replace('/[^a-z0-9]+/i','-',iconv('UTF-8','ASCII//TRANSLIT//IGNORE',$title)),'-'));$items[]=['slug'=>$slug,'title'=>$title,'description'=>$short,'image'=>$image,'detail'=>$detail?:$short];}
  return $items;
 }
 function earning_opportunity(string $slug):?array{foreach(earning_opportunities() as $item)if(hash_equals($item['slug'],$slug))return $item;return null;}

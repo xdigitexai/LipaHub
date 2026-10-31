@@ -1,7 +1,7 @@
 <?php $adminPage=basename($_SERVER['PHP_SELF']??'');$activeType=$_GET['type']??''; ?>
 <button class="sidebar-toggle" type="button" aria-label="Open admin menu" aria-controls="admin-sidebar" aria-expanded="false">☰</button><div class="sidebar-backdrop" hidden></div>
 <aside class="sidebar" id="admin-sidebar">
-<a class="admin-brand" href="<?=e(url('admin/index.php'))?>"><i>L</i><b>LipaHub</b></a>
+<a class="admin-brand" href="<?=e(url('admin/index.php'))?>"><img src="<?=e(url('assets/images/lipahub-mark.svg'))?>" alt="" width="38" height="38"><b>LipaHub</b></a>
 <small>WORKSPACE</small>
 <a class="<?=$adminPage==='index.php'?'active':''?>" href="<?=e(url('admin/index.php'))?>">▦ Dashboard</a>
 <a class="<?=$adminPage==='settings.php'?'active':''?>" href="<?=e(url('admin/settings.php'))?>">◈ Site settings</a>
